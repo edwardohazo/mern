@@ -52,6 +52,7 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //GET PRODUCT
 router.get("/find/:id", async (req, res) => {
+  
     try {
       const product = await Product.findById(req.params.id);
       console.log(product);
@@ -64,7 +65,9 @@ router.get("/find/:id", async (req, res) => {
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
+
     const qNew = req.query.new;
+
     const qCategory = req.query.category;
 
     try {
@@ -72,6 +75,7 @@ router.get("/", async (req, res) => {
 
       if (qNew) {
         products = await Product.find().sort({createdAt: -1}).limit(3);
+        console.log(products);
       } else if (qCategory){
         products = await Product.find({
             categories: {
@@ -80,7 +84,7 @@ router.get("/", async (req, res) => {
         });
       }
 
-      console.log(products);
+      console.log("dentro de product");
       res.status(200).json(products);
     } catch (err) {
       res.status(500).json(err);

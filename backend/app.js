@@ -9,6 +9,8 @@ const orderRoute = require('./routes/order');
 const Stripe = require('stripe');
 const cors = require('cors');
 
+
+
 // CONNECTING DATA BASE
 connectDB();
 
@@ -16,6 +18,7 @@ const app = express();
 app.use(express.json());
 // APROVING CROSS ORIGIN
 app.use(cors({ origin: "http://localhost:3000" }));
+// app.use(cors({ origin: "http://127.0.0.1:5500" }));
 
 
 const stripe = Stripe(process.env.SEC_KEY);
@@ -29,7 +32,7 @@ app.use("/api/orders", orderRoute);
 app.post("/api/checkout", async (req, res) => {
       try {
             const { id, amount } = req.body;
-
+            
             const payment = await stripe.paymentIntents.create({
                   amount: amount,
                   currency: "MXN",
@@ -37,7 +40,7 @@ app.post("/api/checkout", async (req, res) => {
                   payment_method: id,
                   confirm: true
             });
-
+            console.log("aqui estoy");
             res.send({ message: 'Successfull payment!' });
       } catch (error) {
             res.json({ message: error.raw.message });

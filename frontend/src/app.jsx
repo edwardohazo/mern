@@ -1,11 +1,15 @@
-import { React, useState } from 'react';
+import { React, useState,  useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Checkout from './components/checkout'
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 // SCREENS
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
+import CheckoutScreen from './screens/CheckoutScreen';
+import UserListScreen  from './screens/UserListScreen';
+import UsuarioIndividual from './screens/UsuarioIndividualScreen';
+import AgregarUsuarioScreen from './screens/AgregarUsuarioScreen';
+import EditarUsuarioScreen from './screens/EditarUsuarioScreen';
 // COMPONENTS
 import Navbar from './components/Navbar';
 import Backdrop from './components/Backdrop';
@@ -26,15 +30,21 @@ function App() {
         <Route exact path='/' element={<HomeScreen />} />
         <Route exact path='/product/:id' element={<ProductScreen />} />
         <Route exact path='/cart' element={<CartScreen />} />
+        <Route exact path='/checkout' element={<CheckoutScreen />} />
+        <Route exact path='/users' element={<UserListScreen />} />
+        <Route exact path='/individual' element={<UsuarioIndividual />} />
+        <Route exact path='/adduser' element={<AgregarUsuarioScreen />} />
+        <Route exact path='/edituser' element={<EditarUsuarioScreen />} /> 
       </Routes>
     </main>
   </Router> 
-    // <div>
-    //   <Checkout />
-    // </div>
   );
 }
 
 export default App;
+
+
+
+
 
 

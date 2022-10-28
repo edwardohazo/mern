@@ -9,6 +9,8 @@
     flex-direction: column;
     justify-content: space-between;
     flex-direction: column;
+    font-size: bold;
+    color: #05192D;
   }
   
   .product > img {
@@ -39,17 +41,18 @@
     display: block;
     text-decoration: none;
     text-align: center;
-    color: #171717;
+    background-color: #03ef62;
+    color: #05192D;
     width: 100%;
     padding: 8px 16px;
-    background-color: #f4f4f4;
-    border: 1px solid #171717;
     font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
   }
   
   .info__button:hover {
-    background: #171717;
-    color: #f4f4f4;
+    background-color: #69f4a1;
+    color: #05192D;
   }
   
   @media (max-width: 1232px) {

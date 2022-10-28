@@ -2,24 +2,20 @@ import './CartItem.css';
 import { Link } from 'react-router-dom';
  
 
-const CartItem = () => {
+const CartItem = ({ id, name, imageUrl, price, removeHandler }) => {
+    console.log(id)
     return (
         <div className="cartitem">
             <div className='cartitem__image'>
-                <img src={require("../img/ecommerce-servicio.jpg")} alt="E commerce"/>
+                <img src={imageUrl} alt="E commerce"/>
               
             </div>
-            <Link to={`product/${123}`} className='cartitem__name'>
-                <p>E commerce</p>
+            <Link to={`product/${name}`} className='cartitem__name'>
+                <p>{name}</p>
             </Link>
-            <p className="cartitem__price">$20,000.00</p>
-            <select className="cartItem__select">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <button className="cartItem__deletBtn" type="button">
+            <p className="cartitem__price">${price}</p>
+
+            <button className="cartItem__deleteBtn" type="button" onClick={() => removeHandler(id)}>
                 <i className="fas fa-trash"></i>
             </button>
         </div>

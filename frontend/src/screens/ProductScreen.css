@@ -61,11 +61,17 @@
     grid-column: 1/-1;
     width: 100%;
     padding: 10px 16px;
-    background: #171717;
-    color: #f4f4f4;
-    border: 1px solid #171717;
+    background-color: #03ef62;
+    color: #05192D;
+    font-weight: bold;
+    border: none;
     cursor: pointer;
     border-radius: 5px;
+  }
+
+  .right__info p > button:hover {
+    background-color: #69f4a1;
+    color: #05192D;
   }
   
   .right__info select {

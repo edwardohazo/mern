@@ -1,0 +1,11 @@
+.loginFormContainer__Form {
+    border: 3px solid #05192D;
+    font-weight: bold;
+    color: #05192D;
+}
+
+.btn-primary {
+    background-color: #03ef62;
+    color: #05192D;
+}
+
